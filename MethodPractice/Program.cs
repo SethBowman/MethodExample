@@ -7,9 +7,13 @@ namespace MethodPractice
         static void Main(string[] args)
         {
 
-            Console.WriteLine(KosysMethod("true"));
+            //Console.WriteLine(KosysMethod("true"));
 
-            double number = 10;
+            Console.WriteLine(Add(5, 10));
+            
+
+
+           
             
 
 
@@ -29,6 +33,8 @@ namespace MethodPractice
             Console.WriteLine(name);
             Console.WriteLine($"Hello, {name}.");
         }
+
+        
 
 
 

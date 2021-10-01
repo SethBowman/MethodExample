@@ -7,8 +7,9 @@ namespace MethodPractice
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Greeting("Seth", "Bowman", false));
-            
+            Console.WriteLine(KosysMethod("true"));
+
+            double number = 10;
             
 
 
@@ -57,7 +58,10 @@ namespace MethodPractice
             return $"Hello, {firstName} {lastName}, it is {hasHair} that you have hair.";
         }
 
-
+        public static bool KosysMethod(string whatever)
+        {
+            return bool.Parse(whatever);
+        }
 
     }
 }

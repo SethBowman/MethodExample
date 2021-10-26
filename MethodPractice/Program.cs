@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MethodPractice
 {
@@ -6,68 +7,70 @@ namespace MethodPractice
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(DoubleCheck(PasswordCheck()));
 
-            //Console.WriteLine(KosysMethod("true"));
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue to next method..");
+            Console.ReadKey();
+            Console.Clear();
 
-            Console.WriteLine(Add(5, 10));
+            CanVote();
+
+        }
+
+        public static bool CanVote()
+        {
+            Console.WriteLine("Please enter your age:");
+            var canParse = int.TryParse(Console.ReadLine(), out int age);
+
+            while (canParse == false)
+            {
+                Console.WriteLine("Please enter a valid age:");
+                canParse = int.TryParse(Console.ReadLine(), out age);
+            }
+
+            if (age >= 18)
+            {
+                Console.WriteLine("You are old enough to vote.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, you are not old enough to vote.");
+                return false;
+            }
             
+        }
 
 
+        public static string PasswordCheck()
+        {
+            Console.Write("Enter a new password: ");
+            return Console.ReadLine();
            
-            
-
-
         }
 
-
-        // access modifier = public
-        // return type = void
-        // name = LiterallyAnything
-        // parameters = ()
-        // scope = { }
-
-        public static void LiterallyAnything()
+        public static string DoubleCheck(string password)
         {
-            Console.WriteLine("What is your name?");
-            string name = Console.ReadLine();
-            Console.WriteLine(name);
-            Console.WriteLine($"Hello, {name}.");
+            Console.Write("Enter password again: ");
+            var passwordAgain = Console.ReadLine();
+
+            while (password != passwordAgain)
+            {
+                Console.Clear();
+                Console.WriteLine("Passwords did not match, try again.");
+
+
+                password = PasswordCheck();
+                Console.Clear();
+
+                Console.Write("Enter password again: ");
+                passwordAgain = Console.ReadLine();
+            }
+
+            return "Password updated.";
         }
 
-        
-
-
-
-        // access modifier = public
-        // return type = string
-        // name = ReturnString
-        // parameters = ()
-        // scope = { }
-        // notice the return type is a string and the word "hey" is a string
-        public static string ReturnString()
-        {
-            return "hey";
-        } 
-
-        // access modifier = public
-        // return type = int
-        // name = Add
-        // parameters = (int num1, int num2) passing 2 parameters that have a type of int or number
-        public static int Add(int num1, int num2)
-        {
-            return num1 + num2;
-        }
-
-
-        public static string Greeting(string firstName, string lastName, bool hasHair)
-        {
-            return $"Hello, {firstName} {lastName}, it is {hasHair} that you have hair.";
-        }
-
-        public static bool KosysMethod(string whatever)
-        {
-            return bool.Parse(whatever);
-        }
 
     }
 }
